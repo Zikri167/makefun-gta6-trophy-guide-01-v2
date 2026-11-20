@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-row">
+    <div class="brand">
+      <h1>Leonida Legend</h1>
+      <p class="tagline">The complete Grand Theft Auto VI trophy guide &amp; tracker for PlayStation 5: all 55 official trophies, a staged roadmap to the platinum, a missable watch-list, and a cited guide for every single trophy. Everything runs offline, from this page's own files.</p>
+    </div>
+    <div class="progress-panel" aria-label="Your platinum progress">
+      <div class="ring-wrap">
+        <svg class="ring" width="92" height="92" viewBox="0 0 92 92" role="img" aria-label="Progress ring">
+          <circle class="ring-track" cx="46" cy="46" r="40"></circle>
+          <circle class="ring-fill" id="ringFill" cx="46" cy="46" r="40"></circle>
+        </svg>
+        <div class="ring-label"><span id="earnedCount">0/55</span><small>earned</small></div>
+      </div>
+      <div class="progress-meta">
+        <p class="progress-line"><strong id="progressPct">0%</strong> of the platinum</p>
+        <p class="progress-line" id="hoursLine">About 75–95 hours for the full list</p>
+        <div class="bar"><div class="bar-fill" id="overallBar"></div></div>
+        <p class="grade-chips" id="gradeChips"></p>
+      </div>
+    </div>
+  </div>
+  <div class="toolbar">
+    <label class="switch">
+      <input type="checkbox" id="spoilerToggle">
+      <span>Spoiler shield — hide hidden trophies until they are earned</span>
+    </label>
+    <span class="toolbar-spacer"></span>
+    <button type="button" id="exportBtn">Export progress (JSON)</button>
+    <label class="import-label" for="importFile">Import progress</label>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+    <button type="button" id="resetBtn">Reset all</button>
+  </div>
+</header>
+
+<nav class="viewtabs" aria-label="Guide views">
+  <button type="button" class="tab active" data-view="tracker">Tracker &amp; Guides</button>
+  <button type="button" class="tab" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-view="missables">Missable Watch-List</button>
+</nav>
+
+<main>
+  <section id="view-tracker" class="view">
+    <div class="nextup-panel">
+      <h2>Next up — your shortest path forward</h2>
+      <ol id="nextUpList" class="nextup-list"></ol>
+      <p class="closest" id="closestCounters"></p>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="searchBox" placeholder="Search trophies, missions, places, activities…" aria-label="Search trophies">
+      <div class="chips" role="group" aria-label="Filter by kind">
+        <button type="button" class="chip active" data-kind="all">All 55</button>
+        <button type="button" class="chip" data-kind="story">Story</button>
+        <button type="button" class="chip" data-kind="missable">Missable</button>
+        <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+        <button type="button" class="chip" data-kind="activities">Activities</button>
+        <button type="button" class="chip" data-kind="online">Online</button>
+      </div>
+      <select id="gradeFilter" aria-label="Filter by grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <label class="hide-earned"><input type="checkbox" id="hideEarned"> Hide earned</label>
+      <span class="shortcut-hint">Shortcuts: <kbd>/</kbd> search · <kbd>N</kbd> next unearned</span>
+      <span class="result-count" id="resultCount"></span>
+    </div>
+
+    <div class="tracker-grid">
+      <ul id="trophyList" class="trophy-list"></ul>
+      <aside id="detailPanel" class="detail" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view hidden">
+    <div class="roadmap-head">
+      <div class="stat-card">
+        <h3>Platinum difficulty</h3>
+        <p class="stat-big">5.5 / 10</p>
+        <p>No difficulty-setting trophies and no mission gold medals: the ceiling is The Shootist's 42 range golds and Gunslinger's five-in-one Focus. Everything else is volume, not virtuosity.</p>
+      </div>
+      <div class="stat-card">
+        <h3>Time to platinum</h3>
+        <p class="stat-big">75–95 hours</p>
+        <p>Roughly 35–45 for the story and its arcs, 10–15 sweeping collectibles, and 25–30 on mastery and money. Following this roadmap's order is what keeps it at the low end.</p>
+      </div>
+      <div class="stat-card">
+        <h3>Missable risk</h3>
+        <p class="stat-big">20 flagged</p>
+        <p>Three high-risk trophies and seventeen watch items, every one flagged from its official description alone. Clear them on first pass and one playthrough is enough.</p>
+      </div>
+    </div>
+    <div id="stageList"></div>
+  </section>
+
+  <section id="view-missables" class="view hidden">
+    <p class="missable-intro">Every flag below is reasoned from the trophy's official description — which missions it names, which characters it hangs on, which counts PlayStation tracks. Nothing here is copied from another guide: where a description names one unrepeatable-looking moment, we say so, and say why.</p>
+    <div id="missableList"></div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>Trophy names, descriptions and grades are the official PlayStation 5 list exactly as published (the list mirrored by Exophase and cross-checked on PSNProfiles). Guides, roadmap stages, steps and missable flags are this guide's own work, reasoned from those official descriptions, and every trophy's panel names its sources. An unofficial fan guide: no Rockstar Games logos or artwork, and nothing on this page is fetched from the network.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
